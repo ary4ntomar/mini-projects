@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.cardheader {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(25, 21, 48, 0.712);
+  padding: 24px 32px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  margin-top: 10px;
+  border: 1px solid rgba(235, 231, 231, 0.1);
+}
+
+.score,
+.moves {
+  display: flex;
+  flex-direction: column;
+}
+
+.scoreboard {
+  display: flex;
+  column-gap: 20px;
+}
+
+.moves,
+.score {
+  display: flex;
+  font-size: small;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 2px;
+}
+
+.scorecounter,
+.movecounter {
+  font-size: 20px;
+  color: rgb(99, 40, 193);
+}
+
+.button {
+  padding: 5px;
+  background-color: rgb(99, 40, 193);
+  color: white;
+  border-radius: 5px;
+  border-style: none;
+  font-size: smaller;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  font-size: 30px;
+  row-gap: 25px;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.card {
+  /* background-color: rgba(43, 41, 50, 0.498); */
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(58, 53, 70, 0.7);
+  border-color: rgb(79, 66, 108);
+}
+
+.card-front {
+  background-color: rgba(25, 21, 48, 0.728);
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 25px;
+  border: 1px solid rgba(235, 231, 231, 0.1);
+}
+
+.card-back {
+  background-color: rgba(51, 47, 64, 0.498);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  animation: fadeIn 0.2s ease-in-out;
+  border: 1px solid rgba(235, 231, 231, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Target the 'matched' class you put in your component */
+.card.matched .card-back {
+  animation: celebrate 0.5s ease-in-out;
+  border: 2px solid rgb(77, 255, 0); /* Fixed from border-radius to border */
+}
+
+@keyframes celebrate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
